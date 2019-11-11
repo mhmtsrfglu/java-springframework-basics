@@ -1,0 +1,1 @@
+bu özellik oluşturulurken çalışır.

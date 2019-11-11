@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="database" class="com.application.database.Database" autowire="byName">
+		<property name="url" value="mysql:localhost"></property>
+		<property name="username" value="mehmet"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+	
+	
+	<bean id="connector" class="com.application.connector.Connector" init-method="connectToDB" destroy-method="terminateConnection"></bean>
+	
+	<!-- spring'in her hangi bir anotasyon yada autowired olduğunu anlaması için bu bean oluşturulur -->
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean>
+</beans>

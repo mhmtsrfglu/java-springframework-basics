@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="database" class="com.application.database.Database">
+
+		<property name="url" value="mysql:3606"></property>
+		<property name="name" value="mehmet"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+
+	<bean name="dbConnection"
+		class="com.application.database.Connection">
+		<property name="database" ref="database"></property>
+	</bean>
+
+	<!-- İnner bean oluşturma -->
+	<bean name="dbConnectionInnerBean"
+		class="com.application.database.Connection">
+		<property name="database">
+			<bean name="databaseInner"
+				class="com.application.database.Database">
+
+				<property name="url" value="mysql:3606"></property>
+				<property name="name" value="mehmet"></property>
+				<property name="password" value="123456"></property>
+			</bean>
+
+		</property>
+	</bean>
+
+</beans>

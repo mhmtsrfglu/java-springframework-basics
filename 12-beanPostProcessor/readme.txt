@@ -1,0 +1,1 @@
+her bir beanin başlama bitmesi anında yapılabilecek işlemler

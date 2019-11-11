@@ -1,0 +1,1 @@
+Around anotasyonu metot hem başlarken hem biterken tetiklenir.

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- name="dbBaglan" alias olmaktadır -->
+	<bean name="dbBaglan" id="databaseConnection"
+		class="com.application.database.DatabaseConfiguration">
+
+		<!-- setter fonksiyonları üzerinden değerlerin verilmesi -->
+		<property name="url" value="mysql:localhost:8080"></property>
+		<property name="username" value="Mehmet"></property>
+		<property name="password" value="Şerefoğlu"></property>
+	</bean>
+	
+	
+	<bean id="databaseConnectionIndex"
+		class="com.application.database.DatabaseConfiguration">
+
+		<!-- setter fonksiyonları üzerinden değerlerin verilmesi -->
+		<constructor-arg index="0" value="mysql:localhost:8080"></constructor-arg>
+		<constructor-arg index="1" value="Mehmet"></constructor-arg>
+		<constructor-arg index="2" value="123456"></constructor-arg>
+	</bean>
+
+	<bean id="databaseConnectionConstructor"
+		class="com.application.database.DatabaseConfiguration">
+		<constructor-arg name="url" value="localhost"></constructor-arg>
+		<constructor-arg name="username" value="Mehmet"></constructor-arg>
+		<constructor-arg name="password" value="123456"></constructor-arg>
+	</bean>
+
+</beans>
